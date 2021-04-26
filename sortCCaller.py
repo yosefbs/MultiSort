@@ -16,4 +16,4 @@ for i in range(0, chunks):
 exit_codes = [p.wait() for p in pids]
 merge_files("Sorting-step3.txt")
 print(f"Time taken {time.time() - startTime}")
-dbutils.write_into_result(1, "Sorting-step2_Process_time", {int(time.time() - startTime)})
+dbutils.write_into_result(1, "Sorting-step3_Process_time", int(time.time() - startTime))
