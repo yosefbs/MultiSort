@@ -1,7 +1,7 @@
 import numpy as np
 
 import Provider
-from utils import Db2Pandas
+from utils import dbutils
 from utils.FileHandler import FileHandler
 
 chunk_size = Provider.conf.get("ads.chunk-size")
@@ -10,9 +10,9 @@ chunks = int(total / chunk_size)
 
 
 def from_db_to_sorted_file(start,end, res_file):
-    print(f"load names between ${start} - ${end}. save sorted in ${res_file}")
+    # print(f"load names between ${start} - ${end}. save sorted in ${res_file}")
     sorted_data = \
-        Db2Pandas.get_partial_table_by_range(start, end) \
+        dbutils.get_partial_table_by_range(start, end) \
             .sort_values(by=['Name'])
     np.savetxt(res_file, sorted_data["Name"].array, fmt='%s')
 

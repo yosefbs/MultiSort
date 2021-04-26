@@ -13,6 +13,7 @@ def sort2():
 if __name__ == "__main__":
     startTime = time.time()
     sort2()
-    merge_files("res2.txt")
+    merge_files("Sorting-step2.txt")
     print(f"Time taken {time.time() - startTime}")
+    dbutils.write_into_result(1, "Sorting-step2_Process_time", {int(time.time() - startTime)})
     print("complete")

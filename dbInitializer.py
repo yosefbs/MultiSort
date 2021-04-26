@@ -22,19 +22,21 @@ with engine.connect() as con:
         in_statement = f"""INSERT INTO ads.ads (Id,Name) VALUES ({x},'{TextGenrator.get_random_text()}')"""
         con.execute(in_statement)
 
-    # statement = text("""DROP TABLE IF EXISTS ads.RESULTS;""")
-    # con.execute(statement)
-    # statement = text("""CREATE TABLE ads.RESULTS (
-    #  `Index` INTEGER NOT NULL AUTO_INCREMENT,
-    #  `Sorting-step1` CHAR(15),
-    #  `Sorting-step2` CHAR(15),
-    #  `Sorting-step3` CHAR(15),
-    #  `Sorting-step1_Process_time` INTEGER,
-    #  `Sorting-step2_Process_time` INTEGER,
-    #  `Sorting-step3_Process_time` INTEGER,
-    #  PRIMARY KEY (`Index`));""")
-    # con.execute(statement)
-    # for x in range(Provider.conf.get("ads.total")):
-    #     in_statement = f"""INSERT INTO ads.RESULTS ()"""
-    #     con.execute(in_statement)
+    statement = text("""DROP TABLE IF EXISTS ads.RESULTS;""")
+    con.execute(statement)
+    statement = text("""CREATE TABLE ads.RESULTS (
+     `Index` INTEGER NOT NULL AUTO_INCREMENT,
+     `Sorting-step1` CHAR(15),
+     `Sorting-step2` CHAR(15),
+     `Sorting-step3` CHAR(15),
+     `Sorting-step1_Process_time` INTEGER,
+     `Sorting-step2_Process_time` INTEGER,
+     `Sorting-step3_Process_time` INTEGER,
+     PRIMARY KEY (`Index`));""")
+    con.execute(statement)
+    for x in range(Provider.conf.get("ads.total")):
+        in_statement = f"""INSERT INTO ads.RESULTS
+                        (`Sorting-step1`, `Sorting-step2`, `Sorting-step3`, `Sorting-step1_Process_time`, `Sorting-step2_Process_time`, `Sorting-step3_Process_time`)
+                        VALUES(NULL, NULL, NULL, NULL, NULL, NULL);"""
+        con.execute(in_statement)
 

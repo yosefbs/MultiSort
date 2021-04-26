@@ -33,7 +33,7 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
+chunk*
 .idea
 # Installer logs
 pip-log.txt
@@ -153,7 +153,7 @@ sortA.py
 sortB.py
 sortBase.py
 sortC.py
-utils/Db2Pandas.py
+utils/dbutils.py
 utils/FileHandler.py
 utils/TextGenrator.py
 utils/__init__.py
