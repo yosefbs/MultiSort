@@ -21,6 +21,8 @@ run dbInitializer.py
 
 
 ##run apps
+
+
  run:
   
  sortA.py
